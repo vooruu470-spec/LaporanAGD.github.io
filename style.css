@@ -1,0 +1,182 @@
+/* === Global & Reset === */
+:root {
+  --bg-color: #f4f7f6;
+  --form-bg: #ffffff;
+  --text-color: #333;
+  --label-color: #444;
+  --border-color: #dcdcdc;
+  --primary-color: #007bff;
+  --primary-darker: #0056b3; /* Warna untuk hover */
+  --shadow-color: rgba(0, 0, 0, 0.06);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+/* === Judul Utama Halaman === */
+.pilihan h1 {
+  text-align: center;
+  font-weight: 600;
+  color: var(--label-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+/* === Wrapper Formulir Utama === */
+.formulir {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--form-bg);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+/* === Input Fields Umum & Textarea === */
+input[type="text"],
+textarea { /* Menambahkan textarea di sini */
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: #fdfdfd;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  line-height: 1.6; /* Menambahkan line-height untuk textarea */
+}
+
+/* Style khusus textarea */
+textarea {
+  resize: vertical; /* Izinkan user mengubah ukuran tinggi */
+  min-height: 80px;
+}
+
+input[type="text"]:focus,
+textarea:focus { /* Menambahkan textarea di sini */
+  outline: none;
+  border-color: var(--primary-color);
+  background-color: var(--form-bg);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+input[type="text"]::placeholder,
+textarea::placeholder { /* Menambahkan textarea di sini */
+  color: #aaa;
+  font-style: italic;
+}
+
+/* === Label (Semua H1 di dalam form) === */
+.formulir h1 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--label-color);
+}
+
+/* === Tata Letak Bagian Formulir === */
+
+/* Bagian 1 Kolom (Judul, Tindakan, Alat) */
+.judul,
+.tindakan,
+.alat { /* Menambahkan .alat di sini */
+  margin-bottom: 2rem;
+}
+
+.judul h1,
+.tindakan h1,
+.alat h1 { /* Menambahkan .alat di sini */
+  margin-bottom: 0.5rem;
+}
+
+/* Bagian 2 Kolom (Tanggal, Data, Petugas) - Desktop */
+.date,
+.data,
+.petugas {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* 1 bagian untuk label, 2 bagian untuk input */
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.date h1,
+.data h1,
+.petugas h1 {
+  text-align: right;
+  margin: 0;
+}
+
+/* Hapus border/margin bawah di bagian terakhir */
+.petugas {
+  margin-bottom: 0;
+}
+
+/* === Tombol Submit === */
+input[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 2.5rem; /* Memberi jarak dari bagian "petugas" */
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--primary-darker);
+}
+
+input[type="submit"]:active {
+  transform: scale(0.99); /* Efek saat tombol ditekan */
+}
+
+
+/* === Desain Responsif (Mobile) === */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  .formulir {
+    padding: 1.5rem;
+  }
+
+  /* Ubah semua bagian grid menjadi 1 kolom */
+  .date,
+  .data,
+  .petugas {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Luruskan label di atas input */
+  .date h1,
+  .data h1,
+  .petugas h1,
+  .alat h1 { /* Menambahkan .alat di sini */
+    text-align: left;
+    margin-bottom: 0.25rem;
+  }
+
+  input[type="submit"] {
+    margin-top: 2rem;
+  }
+}
